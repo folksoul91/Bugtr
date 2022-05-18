@@ -9,7 +9,11 @@ const budget = require("./models/budget");
 app.use(express.static("public"));
 
 app.get("/budget", (req, res) => {
-  res.render("index.ejs", { budgets: budget });
+  res.render("index.ejs", { allBudgets: budget });
+});
+
+app.get("/budget/:indexOfBugetArray", (req, res) => {
+  res.render("show.ejs", { budgets: budget[req.params.indexOfBugetArray] });
 });
 
 app.listen(PORT, () => {
