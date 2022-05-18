@@ -4,9 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="/skeleton.css" />
     <title>Budgtr Show</title>
   </head>
   <body>
-    <h1>hello</h1>
+    <div class="container">
+      <h1><%= budgets.name %></h1>
+      <button><a href="/budget">Back</a></button>
+      <h5>Date</h5>
+      <p style="text-indent: 50px"><%= budgets.date %></p>
+      <h5>Name</h5>
+      <p style="text-indent: 50px"><%= budgets.name %></p>
+      <h5>From</h5>
+      <p style="text-indent: 50px"><%= budgets.from %></p>
+      <h5>Amount</h5>
+      <p style="text-indent: 50px"><%= budgets.amount %></p>
+      <h5>Tags</h5>
+      <p style="text-indent: 50px"><%= budgets.tags %></p>
+    </div>
   </body>
 </html>
