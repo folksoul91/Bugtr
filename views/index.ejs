@@ -10,15 +10,18 @@
   </head>
   <body>
     <div class="container">
-      <h1>Budgtr ALL</h1>
+      <h1>Budgtr Index</h1>
 
       <table>
+        <% for(let i = 0; i < allBudgets.length; i++){ %>
         <tr>
-          <td></td>
+          <td><%= allBudgets[i].date %></td>
           <td>
-            <a href=""></a>
+            <a href="/budget/<%= i %>"><%= allBudgets[i].name %></a>
           </td>
+          <td><%= allBudgets[i].amount %></td>
         </tr>
+        <% } %>
       </table>
     </div>
   </body>
