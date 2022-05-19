@@ -21,7 +21,12 @@
       <h5>Amount</h5>
       <p style="text-indent: 50px"><%= budgets.amount %></p>
       <h5>Tags</h5>
-      <p style="text-indent: 50px"><%= budgets.tags %></p>
+
+      <% for(let i = 0; i < budgets.tags.length; i++){ %>
+
+      <p style="text-indent: 50px"><%= budgets.tags[i] %></p>
+
+      <% } %>
     </div>
   </body>
 </html>
