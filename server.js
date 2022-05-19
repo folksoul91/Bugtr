@@ -17,13 +17,13 @@ app.get("/budget/new", (req, res) => {
   res.render("new.ejs");
 });
 
-app.get("/budget/:indexOfBugetArray", (req, res) => {
-  res.render("show.ejs", { budgets: budget[req.params.indexOfBugetArray] });
-});
-
-app.post("budget", (req, res) => {
+app.post("/budget", (req, res) => {
   budget.push(req.body);
   res.redirect("/budget");
+});
+
+app.get("/budget/:indexOfBugetArray", (req, res) => {
+  res.render("show.ejs", { budgets: budget[req.params.indexOfBugetArray] });
 });
 
 app.listen(PORT, () => {
