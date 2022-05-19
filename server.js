@@ -9,8 +9,12 @@ const budget = require("./models/budget");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 
+const calc = function () {
+  return budget.reduce((sum, item) => Number(item.amount) + sum, 0);
+};
+
 app.get("/budget", (req, res) => {
-  res.render("index.ejs", { allBudgets: budget });
+  res.render("index.ejs", { allBudgets: budget, bankAccount: calc() });
 });
 
 app.get("/budget/new", (req, res) => {
@@ -18,7 +22,9 @@ app.get("/budget/new", (req, res) => {
 });
 
 app.post("/budget", (req, res) => {
-  budget.push(req.body);
+  const inputTags = req.body;
+  inputTags.tags = req.body.tags.split(";");
+  budget.push(inputTags);
   res.redirect("/budget");
 });
 
